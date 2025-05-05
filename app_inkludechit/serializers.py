@@ -79,7 +79,7 @@ class UserProfileCreationSerializer(serializers.ModelSerializer):
             if not chit_duration == "40 months":
                 raise serializers.ValidationError(f"Chit duration should be 40 months for this selected product")
             if not last_emi_date == last_date:
-                raise serializers.ValidationError(f"Last emi completion date should be {last_date.strftime("%d-%m-%Y")}")
+                raise serializers.ValidationError(f"Last emi completion date should be {last_date.strftime('%d-%m-%Y')}")
             
             if product_code == 301:
                 if not auction_date == 10 or not divident_date == 9:
@@ -108,7 +108,7 @@ class UserProfileCreationSerializer(serializers.ModelSerializer):
             last_date = first_emi_completion_date + relativedelta(months=25)
             last_date = last_date.replace(day=15)
             if not last_emi_date == last_date:
-                raise serializers.ValidationError(f"Last emi completion date should be {last_date.strftime("%d-%m-%Y")}")
+                raise serializers.ValidationError(f"Last emi completion date should be {last_date.strftime('%d-%m-%Y')}")
             
             if not draw_date == 15:
                 raise serializers.ValidationError(f"Draw date should be 15th")
@@ -122,29 +122,29 @@ class UserProfileCreationSerializer(serializers.ModelSerializer):
                     raise serializers.ValidationError("Chit duration should be 20 months for this selected product")
                 last_date = first_emi_completion_date + relativedelta(months=20)
                 if not last_emi_date == last_date:
-                    raise serializers.ValidationError(f"Last emi completion date should be {last_date.strftime("%d-%m-%Y")}")
+                    raise serializers.ValidationError(f"Last emi completion date should be {last_date.strftime('%d-%m-%Y')}")
                 
             elif product_code == 902:
                 if not chit_duration == "25 months":
                     raise serializers.ValidationError("Chit duration should be 25 months for this selected product")
                 last_date = first_emi_completion_date + relativedelta(months=25)
                 if not last_emi_date == last_date:
-                    raise serializers.ValidationError(f"Last emi completion date should be {last_date.strftime("%d-%m-%Y")}")    
+                    raise serializers.ValidationError(f"Last emi completion date should be {last_date.strftime('%d-%m-%Y')}")    
             
             elif product_code in [951,952]:
                 if not chit_duration == "40 months":
                     raise serializers.ValidationError("Chit duration should be 40 months for this selected product")
                 last_date = first_emi_completion_date + relativedelta(months=40)
                 if not last_emi_date == last_date:
-                    raise serializers.ValidationError(f"Last emi completion date should be {last_date.strftime("%d-%m-%Y")}")
+                    raise serializers.ValidationError(f"Last emi completion date should be {last_date.strftime('%d-%m-%Y')}")
                 
             dispatch_date = first_emi_completion_date + relativedelta(months=4)
             if not dispatch_date == dispatching_committed_date:
-                raise serializers.ValidationError(f"Dispatching commited date should be '{dispatching_committed_date.strftime("%d-%m-%Y")}'")
+                raise serializers.ValidationError(f"Dispatching commited date should be '{dispatching_committed_date.strftime('%d-%m-%Y')}'")
             
             div_date = first_emi_completion_date.day
             if not divident_date == div_date :
-                raise serializers.ValidationError(f"Divident date should be '{div_date.strftime("%d-%m-%Y")}'")     
+                raise serializers.ValidationError(f"Divident date should be '{div_date.strftime('%d-%m-%Y')}'")     
         elif kuri_type == "multi division":
             if not product_code == 502:
                 raise serializers.ValidationError(f"Product code is invalid it should be 502")
@@ -152,7 +152,7 @@ class UserProfileCreationSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError("Chit duration should be 100 weeks for this selected product")
             last_date = first_emi_completion_date + relativedelta(weeks=100)
             if not last_emi_date == last_date:
-                raise serializers.ValidationError(f"Last emi completion date should be {last_date.strftime("%d-%m-%Y")}") 
+                raise serializers.ValidationError(f"Last emi completion date should be {last_date.strftime('%d-%m-%Y')}") 
 
 
             init_day = first_emi_completion_date
@@ -172,7 +172,7 @@ class UserProfileCreationSerializer(serializers.ModelSerializer):
                 raise serializers.ValidationError(f"Please provide auction eligibility date ")
             else:
                 if not init_day == multi_division_auction_eligibility:
-                    raise serializers.ValidationError(f"Auction eligibility date should be '{init_day.strftime("%d-%m-%Y")}' ")
+                    raise serializers.ValidationError(f"Auction eligibility date should be '{init_day.strftime('%d-%m-%Y')}' ")
 
             print(f"{multi_division_auction_date}\t{type(multi_division_auction_date)}")
             if not multi_division_auction_date == "Friday":
