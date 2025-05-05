@@ -4,13 +4,14 @@ from rest_framework.response import Response
 from .models import User,UserProfileModel
 from .serializers import UserProfileCreationSerializer
 from rest_framework import status
+from django.http import JsonResponse
 
 # Create your views here.
 class IndexView(APIView):
     def get(self, request):
         profile = UserProfileModel.objects.all()
         serializer = UserProfileCreationSerializer(profile, many=True)
-        return Response(serializer.data)
+        return JsonResponse(serializer.data,safe=False)
 
     def post(self, request):
         serializer = UserProfileCreationSerializer(data=request.data)
