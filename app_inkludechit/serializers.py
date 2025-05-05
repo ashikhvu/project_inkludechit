@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from app_inkludechit.models import UserProfileModel,User,NomineeModel,ProductModel,PaymentModel
+from app_inkludechit.models import UserProfileModel,User,NomineeModel,ProductModel,PaymentModel,my_model
 # from django.contrib.auth.models import c
 from datetime import datetime,timedelta
 from dateutil.relativedelta import relativedelta
@@ -204,3 +204,11 @@ class UserProfileCreationSerializer(serializers.ModelSerializer):
         response['product_model_data'] = ProductModelSerializer(instance.product_model_data).data
         response['payment_model_data'] = PaymentModelSerializer(instance.payment_model_data).data
         return response
+    
+
+class MyModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = my_model
+        fields = "__all__"
+
+    

@@ -197,6 +197,15 @@ class UserProfileModel(models.Model):
     product_model_data = models.ForeignKey(ProductModel,on_delete=models.CASCADE,blank=True,null=True)
     payment_model_data = models.ForeignKey(PaymentModel,on_delete=models.CASCADE,blank=True,null=True)
 
+class my_model(models.Model):
+    name = models.CharField(max_length=255,blank=True,null=True)
+    email = models.EmailField(blank=True,null=True,unique=True)
+    phone = models.CharField(max_length=10,validators=[RegexValidator(
+        regex=r"^[0-9]{10}",
+        message=f"Invalid Mobile Number"
+    )])
+
+
 
 
 
