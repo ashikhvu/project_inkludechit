@@ -86,11 +86,6 @@ AUTH_USER_MODEL = 'app_inkludechit.User'
 # TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
 # TWILIO_PHONE_NUMBER = os.getenv("TWILIO_PHONE_NUMBER")
 
-# TWILIO SETUP ASHIKHVU
-TWILIO_ACCOUNT_SID = "AC97c9fa7d241068f83fbae79166e50bfb"
-TWILIO_AUTH_TOKEN = "9327f754883867dff59a234928e0a50d"
-TWILIO_PHONE_NUMBER = "+14632634281"
-
 # AUTHENTICATION_BACKEND = [
 #     'app_inkludechit.authentication.EmailOrPhoneBackend',
 #     'django.contrib.auth.backends.ModelBackend'
