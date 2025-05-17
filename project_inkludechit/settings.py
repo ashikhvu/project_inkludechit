@@ -81,10 +81,10 @@ SIMPLE_JWT = {
 
 AUTH_USER_MODEL = 'app_inkludechit.User'
 
-# TWILIO SETTINGS
-# TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
-# TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
-# TWILIO_PHONE_NUMBER = os.getenv("TWILIO_PHONE_NUMBER")
+
+TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
+TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
+TWILIO_PHONE_NUMBER = os.getenv("TWILIO_PHONE_NUMBER")
 
 # AUTHENTICATION_BACKEND = [
 #     'app_inkludechit.authentication.EmailOrPhoneBackend',
