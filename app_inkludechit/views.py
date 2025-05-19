@@ -10,6 +10,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from twilio.rest import Client
 from django.conf import settings
 from rest_framework.permissions import IsAuthenticated,IsAdminUser
+from django.views.generic import TemplateView
 
 # Create your views here.
 # class CustomTokenObtainPairView(TokenObtainPairView):
@@ -123,3 +124,9 @@ class GetShareMyInterest(APIView):
             serializer = ShareMyInterestModelSerializer(all_interest,many=True)
             return Response(serializer.data,status=status.HTTP_200_OK)
         return Response({"error":"Data doesn't exist"},status=status.HTTP_400_BAD_REQUEST)
+    
+class CustomerFetch(TemplateView):
+
+    permission_classes= [IsAuthenticated,IsAdminUser]
+    template_name = "style.html"
+    

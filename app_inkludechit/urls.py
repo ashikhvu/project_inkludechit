@@ -12,6 +12,7 @@ urlpatterns = [
     path('sendotp',views.SendOtp.as_view(),name="sendotp"),
     path('share_interest',views.ShareMyInterestView.as_view(),name="share_interest"),
     path('getshare_interest',views.GetShareMyInterest.as_view(),name="getshare_interest"),
+    path('customerfetch',views.CustomerFetch.as_view(),name="customerfetch"),
 ]
 
 if settings.DEBUG:
