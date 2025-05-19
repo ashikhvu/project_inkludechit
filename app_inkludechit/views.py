@@ -49,9 +49,12 @@ class CustomLoginView(APIView):
 
         refresh = RefreshToken.for_user(user)
 
+        user_type = 0 if user.user_type=="super admin" else 1 if user.user_type=="admin" else 2 if user.user_type=="sales agent" else 3 if user.user_type=="collection agent" else 4 if user.user_type=="sales and collection agent" else 5 if user.user_type=="customer" else None
+
         return Response({
             "access": str(refresh.access_token),
             "refresh": str(refresh),
+            "user_type":str(user_type),
         }, status=status.HTTP_200_OK)
 
 

@@ -79,12 +79,11 @@ class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     def get_token(cls,user):
         token = super().get_token(user)
         token["usertype"] = 0 if user.user_type=="super admin" else 1 if user.user_type=="admin" else 2 if user.user_type=="sales agent" else 3 if user.user_type=="collection agent" else 4 if user.user_type=="sales and collection agent" else 5 if user.user_type=="customer" else None
-        token["agent"] = 0 if user.user_type in ["sales agent","collection agent"] else 1
-        # return token
+        return token
     def validate(self,attrs):
         data = super().validate(attrs)
         user = self.user
-        usertype = 0 if user.user_type=="admin" else 1 if user.user_type=="super admin" else 2 if user.user_type=="sales agent" else 3 if user.user_type=="collection agent" else 4 if user.user_type=="customer" else None
+        usertype = 0 if user.user_type=="admin" else 1 if user.user_type=="super admin" else 2 if user.user_type=="sales agent" else 3 if user.user_type=="collection agent" else 4 if user.user_type=="sales and collection agent" else 5 if user.user_type=="customer" else None
         agent = 0 if user.user_type in ["sales agent","collection agent"] else 1
         data.update({
             "usertype":usertype,
